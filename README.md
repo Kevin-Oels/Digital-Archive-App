@@ -1,6 +1,16 @@
-# Getting Started with Create React App
-
+# INTRO
+A digital archive application running in conjunction with AWS infrastructure.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+A .env file is expected in the root of this project.
+it should have the following env keys: 
+REACT_APP_AWS_KEY_ID = 
+REACT_APP_AWS_SECRET = 
+REACT_APP_S3_REGION = 
+REACT_APP_S3_BUCKET = 
+REACT_APP_ARTICLE_API =
+REACT_APP_COMMENT_API = 
+
 
 ## Available Scripts
 

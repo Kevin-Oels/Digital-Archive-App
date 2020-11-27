@@ -1,38 +1,174 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-header {
+  margin-top: 10px;
+  padding-left: 5%;
+  width: 94%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.login-container a {
+  background-color: lightgray;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  color: #3b3b3b;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 2px;
+}
+
+
+.action-bar {
+  margin-left: 50px;
+  display: flex;
+}
+
+form{
+  margin: 0px;
+  display: flex;
+}
+
+.searchbar{
+  display: flex;
+  height: 30px;
+  margin-left: 10px;
+  padding: 0;
+  font-size: 12px;
+}
+
+.searchbar .react-tagsinput {
+  width: 400px;
+  margin-right: 20px;
+  text-align: start;
+}
+
+.MuiDialogContent-root .react-tagsinput {
+  margin-top: 10px;
+  width: 530px;
+  text-align: start;
+}
+
+.react-tagsinput--focused {
+  border-color: #90caf9;
+}
+
+.react-tagsinput-tag {
+  background-color: #90caf9;
+  border: white;
+  color: white;
+}
+
+.no-display {
+  display: none;
+}
+
+.upload-label {
+  padding-left: 20px;
+}
+
+.grid-container table{
+  margin: 20px;
+  font-size: 14px;
+  border-collapse: collapse;
+}
+
+.grid-container th {
+  
+  background-color: #90caf9;
+  border: 1px solid #c5e5ff;
+  color: white;
+}
+
+.grid-container td {
+  border: 1px solid #c5e5ff;
+  padding: 5px;
+}
+
+.grid-name{
+  width: 300px;
+  text-align: start;
+}
+
+.grid-tags {
+  display: flex;
+}
+
+.grid-tag {
+  background-color: #90caf9;
+  border: 1px solid white;
+  border-radius: 4px;
+  color: white;
+  margin: 2px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.MuiButton-root{
+  /* overriding styles, yay! */
+  background-color: #90caf9 !important;
+  height: 30px;
+  margin-left: 5px !important;
+}
+
+.MuiButton-label {
+  color: white;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-section {
+  border-top: 1px solid darkgrey;
+  margin: 20px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+}
+
+.comment-header {
+  display: flex;
+}
+
+.comment-submit {
+  margin: 10px;
+  width: 80%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.comment-textfield {
+  background-color: white;
+  border-radius: 5px;
+  width: 80%;
+}
+
+.user-comment {
+  color: #3b3b3b;
+  background-color: white;
+  border-radius: 5px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  border-bottom: 1px solid gray;
+  margin-top: 20px;
+}
+
+.comment-date {
+  font-size: 12px;
 }
