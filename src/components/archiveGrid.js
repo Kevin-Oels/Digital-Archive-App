@@ -4,16 +4,17 @@ import { downloadFile } from "../helpers/awsS3Handler";
 import FormDialog from './uploadDialog';
 import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
+import '../css/archiveGrid.css'
 import { useAppContext } from "../helpers/contextLib";
 
 export default function ArchiveGrid(state) {
-    const { userHasAuthenticated, isUserAdmin } = useAppContext();
+    const { isAuthenticated, isAdmin } = useAppContext();
     const [data, setData] = React.useState([])
     const [tags, setTags] = React.useState([])
     const [, forceUpdate] = useReducer(x => x + 1, 0);
 
 
-    const articleApi = async(tags) =>{
+    const articleApi = async() =>{
         const response = await fetch(`${process.env.REACT_APP_ARTICLE_API}items`)
         return response.json()
     }
@@ -39,9 +40,11 @@ export default function ArchiveGrid(state) {
                 <Button variant="outlined" color="primary" onClick={() => { navArticle(article.documentid)}}>
                     View
                 </Button>
-                <Button variant="outlined" color="primary" onClick={() => { download(article.documentid)}}>
-                    download
-                </Button>
+                {isAuthenticated ? (
+                    <Button variant="outlined" color="primary" onClick={() => { download(article.documentid)}}>
+                        download
+                    </Button> ) : 
+                ( '')}
             </td>
         </tr>
       );
@@ -84,7 +87,8 @@ export default function ArchiveGrid(state) {
                         Search
                     </Button>
                 </div>
-                {isUserAdmin === true ? (<FormDialog/>) : ('')}
+               
+                {isAdmin ? (<FormDialog/>) : ('')}
             </div>
             <div className="grid-container">
                 <table>

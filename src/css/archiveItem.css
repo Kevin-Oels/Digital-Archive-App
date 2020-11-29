@@ -1,0 +1,98 @@
+.article {
+    display: flex;
+    flex-direction: column;
+}
+
+.return-link a{
+    background-color: #90caf9;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 8px;
+}
+
+.article-element {
+    display: flex;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.article-element label {
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.article-tags {
+    display: flex;
+}
+
+.article-tag {
+    background-color: #90caf9;
+    border: 1px solid white;
+    border-radius: 4px;
+    color: white;
+    margin: 2px;
+    padding: 2px;
+}
+
+.comment-section {
+    border-top: 1px solid darkgrey;
+    margin: 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+}
+
+.comment-header {
+    display: flex;
+}
+
+.comment-submit {
+    margin: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.comment-textfield {
+    background-color: white;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.user-comment {
+    color: #3b3b3b;
+    background-color: white;
+    border-radius: 5px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    border: 1px solid gray;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.comment-context{
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+}
+
+.comment-text{
+    font-size: 18px;
+}
+
+.comment-date {
+    font-weight: normal;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.comment-approve {
+    align-self: flex-end;
+    margin-bottom: -20px !important;
+}

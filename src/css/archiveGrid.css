@@ -1,0 +1,64 @@
+
+.upload-label {
+    padding-left: 20px;
+}
+
+.grid-container table{
+    margin: 20px;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+
+.grid-container th {
+    background-color: #90caf9;
+    border: 1px solid #c5e5ff;
+    color: white;
+}
+
+.grid-container td {
+    border: 1px solid #c5e5ff;
+    padding: 5px;
+}
+  
+.grid-name {
+    width: 300px;
+    text-align: start;
+}
+  
+.grid-tags {
+    display: flex;
+}
+  
+.grid-tag {
+    background-color: #90caf9;
+    border: 1px solid white;
+    border-radius: 4px;
+    color: white;
+    margin: 2px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.action-bar {
+    margin-left: 50px;
+    display: flex;
+}
+  
+form {
+    margin: 0px;
+    display: flex;
+}
+  
+.searchbar{
+    display: flex;
+    height: 30px;
+    margin-left: 10px;
+    padding: 0;
+    font-size: 12px;
+}
+  
+.searchbar .react-tagsinput {
+    width: 400px;
+    margin-right: 20px;
+    text-align: start;
+}

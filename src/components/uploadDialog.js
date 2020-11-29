@@ -10,8 +10,10 @@ import { v4 as uuid } from "uuid";
 import uploadFile from "../helpers/awsS3Handler"
 import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
+import { useAppContext } from "../helpers/contextLib";
 
 export default function FormDialog() {
+  const { isAdmin, userAttributes } = useAppContext();
   const [open, setOpen] = React.useState(false);
   const [filename, setFilename] = React.useState('');
   const [file, setFile] = React.useState('');
@@ -35,7 +37,8 @@ export default function FormDialog() {
       articlename,
       year,
       tags,
-      fileId
+      fileId,
+      addedby: 'admin'
     }
 
     setPostState('Uploading file to S3...')
@@ -134,7 +137,7 @@ export default function FormDialog() {
           <Button 
             onClick={submit} 
             style={{ display: (postState === false ? 'block' : 'none') }} 
-            disabled={articlename === '' || year === '' || file === '' } 
+            disabled={articlename === '' || year === '' || file === '' || tags.length === 0} 
             color="primary">
             Submit
           </Button>

@@ -1,13 +1,24 @@
-@media all and (min-width: 480px) {
-    .Login {
-      padding: 60px 0;
-      display: flex;
-      text-align: center;
-      flex-direction: column;
-    }
-  
-    .Login form {
-      margin: 0 auto;
-      max-width: 320px;
-    }
-  }
+.login-form {
+  display: flex;
+  justify-content: center;
+}
+
+.login-box {
+  padding: 25px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid darkgrey;
+  border-radius: 10px;
+  width: 325px;
+}
+
+.login-row {
+  display: flex;
+  margin: 10px;
+}
+
+.login-error {
+  font-size: 16px;
+  color: red;
+}

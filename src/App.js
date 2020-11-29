@@ -12,14 +12,29 @@ import './App.css';
 import { AppContext } from "./helpers/contextLib";
 
 function App() {
-  // todo replace this with aws auth
   const [isAuthenticated, userHasAuthenticated] = useState(localStorage.getItem('userHasAuthenticated'));
-  const [isAdmin, isUserAdmin] = useState(localStorage.getItem('isUserAdmin'));
+  const [userAttributes, setUserAttributes] = useState(JSON.parse(localStorage.getItem('userAttributes')));
+
+  let isAdmin = false
+
+  if (userAttributes) {
+    // set admin state based on groupss
+    isAdmin = userAttributes['cognito:groups'] ?  userAttributes['cognito:groups'].includes('admins') : false;
+
+    // logout user if the access token as expired
+    const timeNow = Math.floor(new Date().getTime()/1000.0)
+    if (timeNow > userAttributes.exp) {
+      handleLogout()
+    }
+  }
+
 
   function handleLogout() {
     userHasAuthenticated(false);
+    setUserAttributes(null);
     localStorage.removeItem('userHasAuthenticated')
-    localStorage.removeItem('isUserAdmin')
+    localStorage.removeItem('userAttributes')
+    window.location.href="/login";
   }
 
   function showItem(props) {
@@ -43,7 +58,7 @@ function App() {
             )}
           </div>
         </header>
-        <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated, isAdmin, isUserAdmin }}>
+        <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated, isAdmin, userAttributes}}>
           <Switch>
             <Route exact path="/login"><Login /></Route>
             <Route path="/item/:documentid" component={showItem} />
