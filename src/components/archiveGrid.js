@@ -88,7 +88,7 @@ export default function ArchiveGrid(state) {
                     </Button>
                 </div>
                
-                {isAdmin ? (<FormDialog/>) : ('')}
+                {isAdmin ? (<FormDialog getData = {getData}/>) : ('')}
             </div>
             <div className="grid-container">
                 <table>

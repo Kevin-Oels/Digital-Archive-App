@@ -12,7 +12,7 @@ import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
 import { useAppContext } from "../helpers/contextLib";
 
-export default function FormDialog() {
+export default function FormDialog(props) {
   const { isAdmin, userAttributes } = useAppContext();
   const [open, setOpen] = React.useState(false);
   const [filename, setFilename] = React.useState('');
@@ -32,13 +32,17 @@ export default function FormDialog() {
   };
 
   const submit = () => {
+    if (!isAdmin) {
+      return false;
+    }
+
     const fileId = uuid();
     let data = {
       articlename,
       year,
       tags,
       fileId,
-      addedby: 'admin'
+      addedby: userAttributes.username
     }
 
     setPostState('Uploading file to S3...')
@@ -53,6 +57,7 @@ export default function FormDialog() {
       .then(response => response)
       .then(data => {
         setPostState('Done!')
+        props.getData()
       })
       .catch(error => {
           console.error(error)
